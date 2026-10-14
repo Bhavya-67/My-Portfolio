@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhavya Sree Cherukuri | SAP ABAP Developer</title>
+<meta name="description" content="Portfolio of Bhavya Chowdary Cherukuri: SAP Certified ABAP Cloud developer, AI & ML final-year B.Tech student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8FC; --surface:#FFFFFF; --ink:#0E1A2B; --muted:#51607A; --line:#DCE4EF;
+  --brand:#0A6ED1; --brand-ink:#FFFFFF; --gold:#E8A200; --code-bg:#0E1A2B; --code-ink:#D6E2F5;
+  --kw:#6CB6FF; --str:#9AD68A; --cmt:#7C8CA6; --num:#F2B84B;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1320; --surface:#121D30; --ink:#E8EEF8; --muted:#9AA9C2; --line:#223049;
+    --brand:#4DA3FF; --brand-ink:#0B1320; --gold:#F2B84B; --code-bg:#070D17;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1320; --surface:#121D30; --ink:#E8EEF8; --muted:#9AA9C2; --line:#223049;
+  --brand:#4DA3FF; --brand-ink:#0B1320; --gold:#F2B84B; --code-bg:#070D17;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none;letter-spacing:-.01em}
+.logo b{color:var(--brand)}
+nav.main{display:flex;gap:4px;align-items:center;overflow-x:auto}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem;padding:8px 12px;border-radius:8px;white-space:nowrap}
+nav.main a:hover{color:var(--ink);background:var(--surface)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:10px;border:1.5px solid var(--brand);background:var(--brand);color:var(--brand-ink);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand)}
+@media (max-width:760px){ nav.main a:not(.btn){display:none} }
+
+/* Hero */
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 14px;border-radius:999px}
+.status i{width:8px;height:8px;border-radius:50%;background:#2DB36B;display:inline-block}
+h1{font-size:clamp(2.4rem,5.6vw,4rem);line-height:1.04;letter-spacing:-.03em;margin:20px 0 8px;font-weight:800}
+.role{font-size:1.25rem;font-weight:700;color:var(--brand);margin:0 0 18px}
+.lede{color:var(--muted);font-size:1.05rem;max-width:56ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font-size:.82rem;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(10,30,60,.45)}
+.code .bar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--mono);font-size:.78rem;color:var(--cmt)}
+.code .bar i{width:10px;height:10px;border-radius:50%;background:#3A4A66}
+.code .bar span{margin-left:8px}
+.code pre{margin:0;padding:18px 20px;font-family:var(--mono);font-size:.82rem;line-height:1.75;overflow-x:auto}
+.k{color:var(--kw)} .s{color:var(--str)} .c{color:var(--cmt)} .n{color:var(--num)}
+@media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} .hero{padding-top:44px} }
+
+/* Stats */
+.stats{padding:8px 0 24px}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.stat b{display:block;font-size:2rem;font-weight:800;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.9rem}
+@media (max-width:760px){ .stats .wrap{grid-template-columns:repeat(2,1fr)} }
+
+/* Sections */
+section.block{padding:72px 0}
+.head{margin-bottom:36px;max-width:60ch}
+.head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);letter-spacing:-.02em;line-height:1.15;margin:0 0 8px;font-weight:800}
+.head p{margin:0;color:var(--muted)}
+
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){ .g3{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:620px){ .g3,.g2{grid-template-columns:1fr} }
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{margin:0 0 12px;font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:8px;background:color-mix(in srgb,var(--brand) 11%,transparent);color:var(--brand)}
+
+/* Projects */
+.project{display:flex;flex-direction:column;gap:12px}
+.project .meta{color:var(--muted);font-size:.9rem;font-weight:600}
+.project h3{font-size:1.4rem;margin:0}
+.project ul,.item ul{margin:0;padding-left:20px;color:var(--muted)}
+.project li,.item li{margin:6px 0}
+.links{display:flex;gap:10px;margin-top:auto;padding-top:8px}
+.links a{font-weight:700;font-size:.9rem;text-decoration:none;color:var(--brand);border-bottom:2px solid transparent}
+.links a:hover{border-color:var(--brand)}
+.badge{align-self:flex-start;font-size:.78rem;font-weight:700;background:var(--gold);color:#1A1200;padding:3px 10px;border-radius:999px}
+
+/* Timeline */
+.timeline{display:grid;gap:18px;border-left:2px solid var(--line);padding-left:28px;margin-left:6px}
+.item{position:relative}
+.item::before{content:"";position:absolute;left:-37px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--brand);border:3px solid var(--bg)}
+.item .when{color:var(--muted);font-weight:600;font-size:.9rem}
+.item h3{margin:2px 0 2px;font-size:1.2rem}
+.item .org{color:var(--brand);font-weight:700;margin:0 0 10px}
+
+.edu b.score{display:inline-block;margin-top:10px;font-weight:800;color:var(--brand)}
+.edu .when{color:var(--muted);font-size:.9rem;font-weight:600}
+.edu h3{margin:4px 0}
+.edu p{margin:0;color:var(--muted)}
+
+.cert .when{color:var(--muted);font-size:.9rem;font-weight:600}
+.cert h3{margin:4px 0 4px;font-size:1.05rem}
+.cert p{margin:0;color:var(--muted);font-size:.95rem}
+.cert.star{border-color:var(--gold)}
+
+/* Contact */
+.contact{background:var(--code-bg);color:var(--code-ink);border-radius:24px;padding:56px 40px;text-align:center}
+.contact h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:0 0 10px;letter-spacing:-.02em;color:#fff}
+.contact p{max-width:52ch;margin:0 auto 28px;color:#AEBBD1}
+.contact .rows{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:28px}
+.contact .rows a{text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.18);color:#E8EEF8}
+.contact .rows a:hover{border-color:var(--gold)}
+.contact .btn{background:var(--gold);border-color:var(--gold);color:#1A1200}
+
+footer{padding:32px 0 48px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{text-decoration:none;margin-left:14px;font-weight:600}
+footer a:hover{color:var(--brand)}
+
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top">Bhavya<b>.</b></a>
+    <nav class="main" aria-label="Main">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="mailto:cherukuribhavya216@gmail.com">Hire me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status"><i></i>Open to entry-level roles · Class of 2027</span>
+        <h1>Bhavya Chowdary Cherukuri</h1>
+        <p class="role">SAP ABAP Developer · AI &amp; ML Engineer</p>
+        <p class="lede">Final-year B.Tech student (CGPA 8.05) and SAP Certified Back-End Developer for ABAP Cloud. I build ABAP reports, Data Dictionary objects and object-oriented programs on S/4HANA, and Python data projects on the side.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn ghost" href="#" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="#" rel="noopener">GitHub</a>
+        </div>
+        <div class="chips" aria-label="Core technologies">
+          <span class="chip">ABAP</span><span class="chip">S/4HANA</span><span class="chip">RAP</span><span class="chip">Open SQL</span><span class="chip">Python</span><span class="chip">Power BI</span>
+        </div>
+      </div>
+
+      <div class="code" role="img" aria-label="ABAP code snippet describing the developer profile">
+        <div class="bar"><i></i><i></i><i></i><span>zbhavya_profile.abap</span></div>
+<pre><span class="k">REPORT</span> zbhavya_profile.
+
+<span class="k">DATA</span>(ls_dev) = <span class="k">VALUE</span> #(
+  name       = <span class="s">'Bhavya Chowdary'</span>
+  stack      = <span class="s">'SAP ABAP + RAP'</span>
+  certified  = <span class="s">'ABAP Cloud'</span>
+  cgpa       = <span class="n">'8.05'</span>
+  graduating = <span class="n">2027</span>
+  available  = <span class="s">abap_true</span> ).
+
+<span class="c">" Let's build something reliable</span>
+<span class="k">WRITE</span>: / ls_dev-name,
+       / ls_dev-stack.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="wrap">
+      <div class="stat"><b>8.05</b><span>CGPA · B.Tech AI &amp; ML</span></div>
+      <div class="stat"><b>2</b><span>Internships completed</span></div>
+      <div class="stat"><b>2</b><span>Deployed Streamlit apps</span></div>
+      <div class="stat"><b>SAP</b><span>Certified · ABAP Cloud</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="head">
+        <h2>What I work with</h2>
+        <p>SAP ABAP is my main track, backed by Python and data analytics.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card"><h3>SAP ABAP</h3><div class="tags">
+          <span class="tag">ABAP Programming</span><span class="tag">Open SQL</span><span class="tag">Internal Tables</span><span class="tag">Work Areas</span><span class="tag">Structures</span><span class="tag">Field Symbols</span><span class="tag">Inline Declarations</span><span class="tag">Clean ABAP</span></div></div>
+        <div class="card"><h3>Reports &amp; Data Retrieval</h3><div class="tags">
+          <span class="tag">Classical Reports</span><span class="tag">Interactive Reports</span><span class="tag">ALV</span><span class="tag">Selection Screens</span><span class="tag">SELECT-OPTIONS</span><span class="tag">INNER JOIN</span><span class="tag">FOR ALL ENTRIES</span><span class="tag">ABAP Events</span></div></div>
+        <div class="card"><h3>Data Dictionary (DDIC)</h3><div class="tags">
+          <span class="tag">Domains</span><span class="tag">Data Elements</span><span class="tag">Transparent Tables</span><span class="tag">Table Types</span><span class="tag">Search Helps</span><span class="tag">Lock Objects</span><span class="tag">Views</span><span class="tag">TMG</span></div></div>
+        <div class="card"><h3>Object-Oriented ABAP</h3><div class="tags">
+          <span class="tag">Class Methods</span><span class="tag">Factory Methods</span><span class="tag">Abstract Classes</span><span class="tag">Inheritance</span><span class="tag">Polymorphism</span><span class="tag">Function Modules</span><span class="tag">Subroutines</span><span class="tag">Includes</span></div></div>
+        <div class="card"><h3>SAP Transactions</h3><div class="tags">
+          <span class="tag">SE11</span><span class="tag">SE12</span><span class="tag">SE13</span><span class="tag">SE14</span><span class="tag">SE16</span><span class="tag">SE16N</span><span class="tag">SE38</span><span class="tag">SA38</span><span class="tag">SM30</span></div></div>
+        <div class="card"><h3>Analytics &amp; Tools</h3><div class="tags">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Power BI</span><span class="tag">EDA</span><span class="tag">Streamlit</span><span class="tag">C</span><span class="tag">Git &amp; GitHub</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="head">
+        <h2>Projects</h2>
+        <p>Machine learning and data apps, built and deployed with Python.</p>
+      </div>
+      <div class="grid g2">
+        <article class="card project">
+          <span class="badge">Featured</span>
+          <h3>AI-Based Fake News Detection System</h3>
+          <div class="meta">Machine Learning · NLP</div>
+          <p style="margin:0;color:var(--muted)">A classifier that labels news articles as real or fake, with a web interface anyone can try.</p>
+          <ul>
+            <li>Trained a TF-IDF and Logistic Regression model to classify articles as real or fake.</li>
+            <li>Deployed an interactive Streamlit interface; managed the project with Git and GitHub.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">TF-IDF</span><span class="tag">Streamlit</span></div>
+          <div class="links"><a href="https://github.com/Bhavya-67/ClimaTrack" rel="noopener">GitHub</a><a href=" https://climatrack-35bpu6ypw2c7pxmm5e72vh.streamlit.app/⁠ " rel="noopener">Live demo</a></div>
+        </article>
+
+        <article class="card project">
+          <h3>ClimaTrack: Real-Time Weather Forecast</h3>
+          <div class="meta">Web App · API Integration</div>
+          <p style="margin:0;color:var(--muted)">A weather dashboard that shows live conditions for any city.</p>
+          <ul>
+            <li>Pulls live temperature, humidity, wind speed and conditions from the OpenWeatherMap API.</li>
+            <li>Built with Python, Streamlit, Requests and Matplotlib, covering API integration and data visualization.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">OpenWeatherMap API</span><span class="tag">Requests</span><span class="tag">Matplotlib</span></div>
+          <div class="links"><a href="https://github.com/Bhavya-67/Fake-News-Detector" rel="noopener">GitHub</a><a href="https://qmwnkmhzjawggkg2cfse9n.streamlit.app/" rel="noopener">Live demo</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="head">
+        <h2>Training &amp; experience</h2>
+        <p>SAP ABAP training and two internships in Python and data analytics.</p>
+      </div>
+      <div class="timeline">
+        <div class="card item">
+          <div class="when">Training · SAP S/4HANA ABAP &amp; RAP track</div>
+          <h3>SAP ABAP Trainee</h3>
+          <p class="org">Naxrita DevCon · Campus Edition</p>
+          <ul>
+            <li>Wrote ABAP programs using SELECT, SELECT-OPTIONS, INNER JOIN and FOR ALL ENTRIES.</li>
+            <li>Built reports with ALV, TOP-OF-PAGE and END-OF-PAGE events, subroutines and includes.</li>
+            <li>Created Data Dictionary objects: domains, data elements, search helps, views, lock objects and TMG.</li>
+            <li>Studied function modules, class methods, factory methods, abstract classes, inheritance and polymorphism.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <div class="when">Jun 2026 – Jul 2026</div>
+          <h3>Data Analytics Intern</h3>
+          <p class="org">ApexPlanet Software Pvt. Ltd.</p>
+          <ul>
+            <li>Cleaned and analyzed datasets with Python, SQL and Pandas; ran EDA to find trends and insights.</li>
+            <li>Built interactive Power BI dashboards and wrote SQL queries for business reporting.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <div class="when">Feb 2026 – Mar 2026</div>
+          <h3>Python Developer Intern</h3>
+          <p class="org">Elevate Labs</p>
+          <ul>
+            <li>Developed Python applications, REST APIs and Flask web apps with CRUD functionality.</li>
+            <li>Automated tasks and analyzed data using Pandas, Matplotlib, web scraping and file handling.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="head">
+        <h2>Education</h2>
+        <p>An AI and ML degree alongside hands-on SAP development.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card edu">
+          <span class="when">2023 – 2027 · Final year</span>
+          <h3>B.Tech, Artificial Intelligence &amp; Machine Learning</h3>
+          <p>Tirumala Engineering College, Jonnalagadda, Narasaraopet</p>
+          <b class="score">CGPA 8.05 / 10</b>
+        </div>
+        <div class="card edu">
+          <span class="when">2021 – 2023</span>
+          <h3>Intermediate (MPC)</h3>
+          <p>NRI Vidya Junior College, Guntur</p>
+          <b class="score">81.2%</b>
+        </div>
+        <div class="card edu">
+          <span class="when">2020 – 2021</span>
+          <h3>Secondary School Certificate (SSC)</h3>
+          <p>Universal High School, Pusapadu</p>
+          <b class="score">10 / 10 GPA</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="certifications">
+    <div class="wrap">
+      <div class="head">
+        <h2>Certifications</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card cert star">
+          <span class="when">Sep 2026</span>
+          <h3>SAP Certified Back-End Developer</h3>
+          <p>ABAP Cloud</p>
+        </div>
+        <div class="card cert">
+          <span class="when">Jun 2026</span>
+          <h3>Gen AI Powered Data Analytics</h3>
+          <p>Job simulation · Tata Group (Forage)</p>
+        </div>
+        <div class="card cert">
+          <span class="when">May 2025</span>
+          <h3>Python</h3>
+          <p>HackerRank</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Let's work together</h2>
+        <p>I'm looking for an entry-level SAP ABAP Developer or Technical Consultant role. If your team needs someone who writes clean ABAP and learns fast, get in touch.</p>
+        <div class="rows">
+          <a href="mailto:cherukuribhavya216@gmail.com">Email · cherukuribhavya216@gmail.com</a>
+          <a href="tel:+916305248386">Phone · +91 63052 48386</a>
+          <a href="https://www.linkedin.com/in/cherukuribhavyasree/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Bhavya-67" rel="noopener">GitHub</a>
+        </div>
+        <a class="btn" href="mailto:cherukuribhavya216@gmail.com">Send an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Bhavya Sree Cherukuri · SAP ABAP Developer · © 2026</span>
+    <span><a href="https://github.com/Bhavya-67">GitHub</a><a href="https://www.linkedin.com/in/cherukuribhavyasree/">LinkedIn</a><a href="mailto:cherukuribhavya216@gmail.com">Email</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
